@@ -1,5 +1,4 @@
-import React from 'react'
-import './HeroSection2.css'
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import heroImage1 from '../assets/hero-img1.png';
 import heroImage2 from '../assets/hero-img2.png';
@@ -7,6 +6,8 @@ import heroImage3 from '../assets/hero-img3.png';
 import heroImage4 from '../assets/hero-img4.png';
 import heroImage5 from '../assets/hero-img5.png';
 import heroImage6 from '../assets/hero-img6.png';
+import './HeroSection2.css';
+
 const HeroSection2 = () => {
   const history = useHistory();
   const handleButtonClick = () => {
@@ -25,18 +26,18 @@ const HeroSection2 = () => {
           Who is it for?
         </h1>
 
-        <div class="who-container">
-        <div class="who-card">
+        <div className="who-container">
+        <div className="who-card">
             <img src={heroImage1} alt="Teachers and Schools"/>
             <h3>Teachers and Schools</h3>
             <p>Schools and teachers can make use of Quizgen to automatically generate worksheets and exam papers. Quizgen also helps avoid the use of repetitive questions chosen from a fixed question bank every year.</p>
         </div>
-        <div class="who-card">
+        <div className="who-card">
             <img src={heroImage2} alt="HR Teams"/>
             <h3>HR Teams</h3>
             <p>Assessments for compliance documents are needed by an HR Team whenever there is a change in a company's policy. Quizgen can quickly generate such assessments using its advanced AI algorithms.</p>
         </div>
-        <div class="who-card">
+        <div className="who-card">
             <img src={heroImage3} alt="Publishers and Edtech Companies"/>
             <h3>Publishers and Edtech Companies</h3>
             <p>Publishers and Edtech companies can save ample amounts of time and costs by having a small in-house team create various assessments using Quizgen, instead of outsourcing or hiring freelancers to do it for them.</p>
@@ -56,35 +57,35 @@ const HeroSection2 = () => {
         <p className='mcq-made-paragraph'>
           We start with identifying key sentences that carry key concepts from any given text. 
         </p>
-        <img src={heroImage4} alt="Publishers and Edtech Companies"style={{margin: '4% 0 2% 15%'}}/>
+        <img src={heroImage4} alt="Identifying Key Sentences"style={{margin: '4% 0 2% 15%'}}/>
         <h3 className='mcq-made'>
           2. Extracting Keywords from Sentences
         </h3>
         <p className='mcq-made-paragraph'>
           From the key sentences, we identify keywords and key phrases that form the correct answer to which questions are created.
         </p>
-        <img src={heroImage5} alt="Publishers and Edtech Companies" style={{margin: '4% 0 2% 15%'}}/>
+        <img src={heroImage5} alt="Extracting Keywords from Sentences" style={{margin: '4% 0 2% 15%'}}/>
         <h3 className='mcq-made'>
           3. Forming an MCQ
         </h3>
         <p className='mcq-made-paragraph'>
           After we extract a keyword or keyphrase (correct answer), we use AI algorithms to generate a question from the key sentence such that the extracted keyword or keyphrase is the right answer. For a given generated question and right answer pair, we generate relevant distractors (wrong answer choices) using another AI algorithm to generate the complete Multiple Choice Question (MCQ).
         </p>
-        <img src={heroImage6} alt="Publishers and Edtech Companies" style={{margin: '4% 0 2% 15%'}}/>
+        <img src={heroImage6} alt="Forming an MCQ" style={{margin: '4% 0 2% 15%'}}/>
 
 
   
 
-        <div class="hero-last-card">
-          <div class="hero-card-content">
-            <p class="hero-card-title">
+        <div className="hero-last-card">
+          <div className="hero-card-content">
+            <p className="hero-card-title">
               Ready to try out Questgen for free?
             </p>
-            <p class="hero-card-para">
-              It's just a click away! 
+            <p className="hero-card-para">
+              Its just a click away! 
             </p>
             <p>
-              <button class="button-container miq55g7" style={{padding: 20}} onClick={handleButtonClick}>
+              <button className="button-container miq55g7" style={{padding: 20}} onClick={handleButtonClick}>
                 Get started →
               </button>
             </p>

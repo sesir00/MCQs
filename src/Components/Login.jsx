@@ -1,15 +1,19 @@
-import React ,{useState} from 'react'
-import './Login.css'
-import { Link, useHistory} from 'react-router-dom/cjs/react-router-dom.min'
 import axios from 'axios';
+import React, { useContext, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import './Login.css';
+import {Context} from '../context/contextProvider'
+
 const Login = () => {
   const history = useHistory();
+  const {setUser} = useContext(Context);
+
   const handleButtonClick = () => {
     history.push('/');
   }
 
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
     password: ''
   });
 
@@ -26,13 +30,14 @@ const Login = () => {
       .then(response => {
         if(response.data.success){
           history.push('/upload');
+          setUser(response.data.user)
         }else{
           alert(response.data.message);
         }
       })
       .catch(error => {
         console.error("There was an error logging in.", error);
-        setError("An error occured. Please try again.");
+        // setError("An error occured. Please try again.");
       });
   }
   return (
@@ -45,29 +50,29 @@ const Login = () => {
 
 
       <div className="center-wrapper">
-      <div class="form-container">
-        <div class="logo-container">
+      <div className="form-container">
+        <div className="logo-container">
           Login
         </div>
 
-        <form class="form" onSubmit={handleSubmit}>
-          <div class="form-group">
-            <label hrmlFor="username">Username</label>
-            <input type="text" id="username" name="username" value={formData.username} onChange={handleOnChange} placeholder="Enter your username" required=""/>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">name</label>
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleOnChange} placeholder="Enter your name" required=""/>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="text" id="password" name="password" value={formData.password} onChange={handleOnChange} placeholder="Enter your password" required=""/>
+            <input type="password" id="password" name="password" value={formData.password} onChange={handleOnChange} placeholder="Enter your password" required=""/>
           </div>
 
           
 
-          <button class="form-submit-btn" type="submit">Login</button>
+          <button className="form-submit-btn" type="submit">Login</button>
         </form>
 
-        <p class="signup-link">
+        <p className="signup-link">
           Don't have an account?
-        <Link to="/signup" class="signup-link link"> Sign up now</Link>
+        <Link to="/signup" className="signup-link link"> Sign up now</Link>
         </p>
       </div>
       </div>

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+.horizontal-line {
+  border-top: 1px solid #dcdcdc; /* Thin, light gray line */
+  margin: 20px 0; /* Adds spacing above and below */
+  width: 100%; /* Makes it stretch across the container */
+}
 
 
 .site-footer

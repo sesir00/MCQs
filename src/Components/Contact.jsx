@@ -10,7 +10,6 @@ const Contact = () => {
         const formData = new FormData(event.target);
     
         formData.append("access_key", "b16cdec3-4b21-4913-be8c-40bc89295688");
-    
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
     
@@ -47,7 +46,8 @@ const Contact = () => {
 
             <div className='input-box'>
                 <label>Your Message</label>
-                <textarea name='message' id='' placeholder='Enter Your message'></textarea>
+                <textarea name="message" className="field" placeholder="Enter Your message"></textarea>
+ 
             </div>
             <button type='submit'>Send Message</button>
         </form>

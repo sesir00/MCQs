@@ -1,9 +1,23 @@
-import React from 'react';
-import './Navbar.css';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import myImage from '../assets/quizgen_removebg.png';
+import { Context } from '../context/contextProvider';
+import './Navbar.css';
+import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
+  const history = useHistory();
+  const {user,setUser} = useContext(Context);
+
+  useEffect(() => {
+    if(user){
+      console.log("role = " + user.role)
+    }
+  },[user])
+  const handleLogout = () => {
+    setUser(null); // Clear user session
+    history.push('/'); // Redirect to home page
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -33,19 +47,35 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item" style={{paddingTop:5}}>
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/team">
                   Team
-                </a>
+                </Link>
               </li>
               <li className="nav-item" style={{paddingTop:5}}>
                 <Link className="nav-link" to="/contact">
                   Contact
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login" style={{margin:0}}>
-                <button class="button-container miq55g7">Login</button>
+              {
+                user && user.role === "admin" && 
+                <li className="nav-item" style={{paddingTop:5}}>
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
                 </Link>
+              </li>
+              }
+             
+              <li className="nav-item">
+                
+                {
+                  user ? <button className="button-container miq55g7" style={{marginTop: '8px'}} onClick={handleLogout}>Logout</button>:
+                  <Link className="nav-link" to="/login" style={{margin:0}}>
+                  <button className="button-container miq55g7">Login</button>
+                  </Link>
+                }
+
+                
+                
               </li>
             </ul>
           </div>

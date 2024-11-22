@@ -44,8 +44,12 @@
   .option-item.incorrect{
     background-color: #f8d7da; /* Light red */
     border-color: #f5c6cb;
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-between;
   }
-
+ 
   .correct-badge {
     margin-left: 10px;
     padding: 2px 5px;
